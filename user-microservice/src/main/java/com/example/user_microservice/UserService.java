@@ -14,7 +14,7 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-    @CacheEvict(value = "users", key = "#id")
+    @CacheEvict(value = "users", allEntries = true)
     public void deleteUserById(Long id) {
         userRepository.deleteById(id);
     }
@@ -38,6 +38,7 @@ public class UserService {
         return userRepository.findById(id);
     }
 
+    @CacheEvict(value = "users", allEntries = true)
     public User createUser(User user) {
         return userRepository.save(user);
     }
