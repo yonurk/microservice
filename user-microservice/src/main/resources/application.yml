@@ -1,0 +1,26 @@
+server:
+  port: 8080
+
+cache:
+  type: caffeine
+  spec:
+    initialCapacity: 100
+    maximumSize: 500
+    expireAfterAccess: 600s
+
+spring:
+  application:
+    name: user-microservice
+  datasource:
+    url: jdbc:postgresql://localhost:5433/products
+    username: postgres
+    password: admin
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: none
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
