@@ -13,7 +13,7 @@ public class UserController {
 
     @GetMapping
     public List<User> getUsers() {
-        return userService.getAllUsers();
+        return userService.findAllUsersWithCache();
     }
 
     @PostMapping

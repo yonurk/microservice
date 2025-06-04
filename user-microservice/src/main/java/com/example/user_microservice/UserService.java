@@ -38,6 +38,7 @@ public class UserService {
         return userRepository.findById(id);
     }
 
+    @CacheEvict(value = "users", allEntries = true)
     public User createUser(User user) {
         return userRepository.save(user);
     }
