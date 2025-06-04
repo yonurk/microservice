@@ -19,7 +19,7 @@ public class UserService {
         userRepository.deleteById(id);
     }
 
-    // Caching-enabled getAll method
+    // Caching-enabled findAllUsersWithCache method
     @Cacheable("users")
     public List<User> findAllUsersWithCache() {
         try {
